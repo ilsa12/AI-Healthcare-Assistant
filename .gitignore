@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+outputs/logs/*
+outputs/heatmaps/*
+outputs/models/*
+.ipynb_checkpoints/
