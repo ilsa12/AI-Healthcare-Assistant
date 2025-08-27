@@ -1,0 +1,16 @@
+Flask
+gunicorn
+torch
+torchvision
+torchaudio
+scikit-learn
+pandas
+numpy
+matplotlib
+opencv-python
+pydicom
+jupyter
+grad-cam
+transformers
+tqdm
+pillow
