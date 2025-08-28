@@ -7,7 +7,7 @@ from torchvision import models, transforms
 from flask import Flask, render_template, request, redirect, url_for
 from PIL import Image
 
-# Flask setup
+# Flask Setup
 app = Flask(__name__)
 UPLOAD_FOLDER = "static/uploads"
 RESULT_FOLDER = "static/results"
@@ -15,7 +15,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(RESULT_FOLDER, exist_ok=True)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
-# Model load
+#  Model Load
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 class_names = ["NORMAL", "PNEUMONIA"]
 
@@ -31,7 +31,7 @@ transform = transforms.Compose([
     transforms.ToTensor(),
 ])
 
-# Gradcam helpers
+# Grad-CAM Helpers
 def generate_gradcam(model, image_path, save_prefix):
     """Generate heatmap overlay and bounding box image"""
 
@@ -95,7 +95,7 @@ def generate_gradcam(model, image_path, save_prefix):
 
     return class_names[pred_class], original_path, heatmap_path, box_path
 
-# Routes
+# Routes 
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
@@ -122,6 +122,6 @@ def index():
 
     return render_template("index.html")
 
-# Run
+# Run 
 if __name__ == "__main__":
     app.run(debug=True)
